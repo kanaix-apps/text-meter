@@ -34,54 +34,50 @@ export default function ToolButtons({ text, onTextChange }: Props) {
   };
 
   const btnBase =
-    "rounded-lg border px-4 py-2 text-sm font-medium transition active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed";
-  const btnSecondary = `${btnBase} border-gray-200 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700`;
+    "rounded-md border px-3 py-1.5 text-xs font-medium transition active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed";
+  const btnSecondary = `${btnBase} border-gray-200 bg-white text-gray-600 hover:bg-gray-50 hover:border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700`;
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 shadow-sm dark:border-gray-700 dark:bg-gray-900/60">
-      <h2 className="mb-3 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-        テキスト変換
-      </h2>
-      <div className="flex flex-wrap gap-2">
-        <button
-          onClick={() => onTextChange(halfToFull(text))}
-          disabled={!text}
-          className={btnSecondary}
-        >
-          半角 → 全角
-        </button>
-        <button
-          onClick={() => onTextChange(fullToHalf(text))}
-          disabled={!text}
-          className={btnSecondary}
-        >
-          全角 → 半角
-        </button>
-        <button
-          onClick={handleKanaToRomaji}
-          disabled={!text || converting}
-          className={btnSecondary}
-        >
-          {converting ? "変換中…" : "かな → ローマ字"}
-        </button>
-        <button
-          onClick={() => onTextChange(romajiToKana(text))}
-          disabled={!text}
-          className={btnSecondary}
-        >
-          ローマ字 → かな
-        </button>
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="text-xs font-semibold uppercase tracking-widest text-gray-300 dark:text-gray-600">
+        変換
+      </span>
+      <button
+        onClick={() => onTextChange(halfToFull(text))}
+        disabled={!text}
+        className={btnSecondary}
+      >
+        半角→全角
+      </button>
+      <button
+        onClick={() => onTextChange(fullToHalf(text))}
+        disabled={!text}
+        className={btnSecondary}
+      >
+        全角→半角
+      </button>
+      <button
+        onClick={handleKanaToRomaji}
+        disabled={!text || converting}
+        className={btnSecondary}
+      >
+        {converting ? "変換中…" : "かな→ローマ字"}
+      </button>
+      <button
+        onClick={() => onTextChange(romajiToKana(text))}
+        disabled={!text}
+        className={btnSecondary}
+      >
+        ローマ字→かな
+      </button>
 
-        <div className="ml-auto">
-          <button
-            onClick={handleCopy}
-            disabled={!text}
-            className={`${btnBase} border-transparent bg-blue-500 px-5 text-white shadow-sm hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700`}
-          >
-            {copied ? "コピー済み ✓" : "コピー"}
-          </button>
-        </div>
-      </div>
+      <button
+        onClick={handleCopy}
+        disabled={!text}
+        className={`${btnBase} ml-auto border-transparent bg-blue-500 px-4 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700`}
+      >
+        {copied ? "コピー済み ✓" : "コピー"}
+      </button>
     </div>
   );
 }
