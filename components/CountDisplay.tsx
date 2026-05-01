@@ -49,7 +49,6 @@ export default function CountDisplay({ result }: Props) {
     { label: "改行除く", value: result.withoutNewline, unit: "字" },
     { label: "空白・改行除く", value: result.withoutSpace, unit: "字" },
     { label: "行数", value: result.lines, unit: "行" },
-    { label: "原稿用紙", value: result.manuscript.toFixed(1), unit: "枚" },
   ];
 
   if (result.variationSelectors > 0) {

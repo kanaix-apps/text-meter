@@ -1,9 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import TextArea from "@/components/TextArea";
 import CountDisplay from "@/components/CountDisplay";
-import ToolButtons from "@/components/ToolButtons";
 import { countChars, type CountResult } from "@/lib/counter";
 
 export default function Home() {
@@ -39,7 +37,7 @@ export default function Home() {
           テキストメーター
         </h1>
         <p className="text-xs text-gray-500 dark:text-gray-400">
-          文字数・バイト数・原稿用紙枚数を即時カウント
+          文字数・バイト数を即時カウント
         </p>
       </header>
 
@@ -83,10 +81,6 @@ export default function Home() {
             placeholder="文章を入力または貼り付けてください"
             className="flex-1 resize-none bg-white p-5 text-base leading-relaxed text-gray-800 placeholder-gray-300 focus:outline-none dark:bg-gray-950 dark:text-gray-100 dark:placeholder-gray-700 lg:min-h-0"
           />
-
-          <div className="border-t border-gray-100 px-5 py-3 dark:border-gray-800">
-            <ToolButtons text={text} onTextChange={setText} />
-          </div>
         </section>
 
         {/* 右カラム：カウント結果 */}
