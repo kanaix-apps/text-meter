@@ -29,7 +29,7 @@ export default function Home() {
         </section>
 
         {/* 下段：テキスト入力 */}
-        <section className="flex min-h-0 flex-1 flex-col">
+        <section className="flex min-h-0 flex-1 flex-col mb-[5%]">
           <div className="shrink-0 flex items-center justify-between border-b border-gray-100 px-6 py-3 dark:border-gray-800">
             <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
               入力
