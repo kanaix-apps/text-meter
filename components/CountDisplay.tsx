@@ -15,15 +15,15 @@ type Item = {
 
 const Card = ({ item }: { item: Item }) => (
   <div
-    className={`rounded-lg p-4 ${
+    className={`flex items-center justify-between rounded-lg px-4 py-2.5 ${
       item.highlight
         ? "bg-blue-50 ring-1 ring-blue-200 dark:bg-blue-900/30 dark:ring-blue-800"
         : "bg-white ring-1 ring-gray-100 dark:bg-gray-800 dark:ring-gray-700"
     }`}
   >
-    <p className="text-xs text-gray-500 dark:text-gray-400">{item.label}</p>
+    <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
     <p
-      className={`mt-1 text-2xl font-bold tabular-nums leading-tight ${
+      className={`text-2xl font-bold tabular-nums leading-none ${
         item.highlight
           ? "text-blue-600 dark:text-blue-400"
           : "text-gray-800 dark:text-gray-100"
@@ -60,7 +60,7 @@ export default function CountDisplay({ result }: Props) {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-3">
+    <div className="flex flex-col gap-3">
       {items.map((item) => (
         <Card key={item.label} item={item} />
       ))}
