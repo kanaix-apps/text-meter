@@ -19,7 +19,7 @@ const Card = ({ item }: { item: Item }) => (
     style={
       item.highlight
         ? { backgroundColor: "#547792", outline: "1px solid #547792" }
-        : { backgroundColor: "#F1EFEC", outline: "1px solid #D4C9BE" }
+        : { backgroundColor: "#B3C8CF", outline: "1px solid #B3C8CF" }
     }
   >
     <p className="text-xs" style={{ color: item.highlight ? "#D4C9BE" : "#547792" }}>
