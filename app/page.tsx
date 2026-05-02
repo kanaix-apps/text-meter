@@ -12,8 +12,8 @@ export default function Home() {
   const handleReset = useCallback(() => setText(""), []);
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="border-b border-gray-200 bg-white px-6 py-4 dark:border-gray-800 dark:bg-gray-950">
+    <div className="flex h-screen flex-col overflow-hidden">
+      <header className="shrink-0 border-b border-gray-200 bg-white px-6 py-4 dark:border-gray-800 dark:bg-gray-950">
         <h1 className="text-xl font-bold tracking-tight text-gray-900 dark:text-gray-50">
           テキストメーター
         </h1>
@@ -22,15 +22,15 @@ export default function Home() {
         </p>
       </header>
 
-      <main className="flex flex-1 flex-col px-[15%]">
+      <main className="flex min-h-0 flex-1 flex-col px-[15%]">
         {/* 上段：カウント結果 */}
-        <section className="border-b border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+        <section className="shrink-0 border-b border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
           <CountDisplay result={result} />
         </section>
 
         {/* 下段：テキスト入力 */}
-        <section className="flex flex-1 flex-col">
-          <div className="flex items-center justify-between border-b border-gray-100 px-6 py-3 dark:border-gray-800">
+        <section className="flex min-h-0 flex-1 flex-col">
+          <div className="shrink-0 flex items-center justify-between border-b border-gray-100 px-6 py-3 dark:border-gray-800">
             <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
               入力
             </span>
@@ -46,7 +46,7 @@ export default function Home() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="文章を入力または貼り付けてください"
-            className="flex-1 resize-none bg-white px-8 py-6 text-base leading-relaxed text-gray-800 placeholder-gray-300 focus:outline-none dark:bg-gray-950 dark:text-gray-100 dark:placeholder-gray-700"
+            className="min-h-0 flex-1 resize-none bg-white px-8 py-6 text-base leading-relaxed text-gray-800 placeholder-gray-300 focus:outline-none dark:bg-gray-950 dark:text-gray-100 dark:placeholder-gray-700"
           />
         </section>
       </main>
