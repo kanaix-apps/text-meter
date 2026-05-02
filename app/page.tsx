@@ -24,7 +24,7 @@ export default function Home() {
 
       <main className="flex min-h-0 flex-1 flex-col px-[15%]">
         {/* 上段：カウント結果 */}
-        <section className="shrink-0 border-b px-8 py-6" style={{ backgroundColor: "#D4C9BE", borderColor: "#D4C9BE" }}>
+        <section className="shrink-0 border-b px-8 py-6" style={{ backgroundColor: "#ffffff", borderColor: "#D4C9BE" }}>
           <CountDisplay result={result} />
         </section>
 
@@ -57,7 +57,7 @@ export default function Home() {
             onChange={(e) => setText(e.target.value)}
             placeholder="文章を入力または貼り付けてください"
             className="min-h-0 flex-1 resize-none px-8 py-6 text-base leading-relaxed focus:outline-none"
-            style={{ backgroundColor: "#F1EFEC", color: "#123458" }}
+            style={{ backgroundColor: "#ffffff", color: "#123458" }}
           />
         </section>
       </main>
