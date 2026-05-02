@@ -34,12 +34,21 @@ export default function Home() {
             <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
               入力
             </span>
-            <button
-              onClick={handleReset}
-              className="rounded-md border border-gray-200 px-3 py-1 text-xs font-medium text-gray-500 hover:bg-gray-50 active:scale-95 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800"
-            >
-              リセット
-            </button>
+            <div className="group relative">
+              <button
+                onClick={handleReset}
+                disabled={!text}
+                className="rounded-md p-1.5 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 active:scale-95 disabled:opacity-30 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+                aria-label="クリア"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+                  <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+                </svg>
+              </button>
+              <span className="pointer-events-none absolute right-0 top-8 rounded bg-gray-700 px-2 py-1 text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:bg-gray-600">
+                クリア
+              </span>
+            </div>
           </div>
 
           <textarea
