@@ -15,22 +15,24 @@ type Item = {
 
 const Card = ({ item }: { item: Item }) => (
   <div
-    className={`flex flex-1 flex-col items-center justify-center rounded-lg py-4 ${
+    className="flex flex-1 flex-col items-center justify-center rounded-lg py-4"
+    style={
       item.highlight
-        ? "bg-blue-50 ring-1 ring-blue-200 dark:bg-blue-900/30 dark:ring-blue-800"
-        : "bg-white ring-1 ring-gray-100 dark:bg-gray-800 dark:ring-gray-700"
-    }`}
+        ? { backgroundColor: "#547792", outline: "1px solid #547792" }
+        : { backgroundColor: "#F1EFEC", outline: "1px solid #D4C9BE" }
+    }
   >
-    <p className="text-xs text-gray-500 dark:text-gray-400">{item.label}</p>
+    <p className="text-xs" style={{ color: item.highlight ? "#D4C9BE" : "#547792" }}>
+      {item.label}
+    </p>
     <p
-      className={`mt-1 text-2xl font-bold tabular-nums leading-none ${
-        item.highlight
-          ? "text-blue-600 dark:text-blue-400"
-          : "text-gray-800 dark:text-gray-100"
-      }`}
+      className="mt-1 text-2xl font-bold tabular-nums leading-none"
+      style={{ color: item.highlight ? "#F1EFEC" : "#123458" }}
     >
       {typeof item.value === "number" ? item.value.toLocaleString() : item.value}
-      <span className="ml-1 text-xs font-normal text-gray-400">{item.unit}</span>
+      <span className="ml-1 text-xs font-normal" style={{ color: item.highlight ? "#D4C9BE" : "#547792" }}>
+        {item.unit}
+      </span>
     </p>
   </div>
 );
@@ -38,7 +40,7 @@ const Card = ({ item }: { item: Item }) => (
 export default function CountDisplay({ result }: Props) {
   if (!result) {
     return (
-      <div className="flex h-24 items-center justify-center text-sm text-gray-300 dark:text-gray-600">
+      <div className="flex h-24 items-center justify-center text-sm" style={{ color: "#D4C9BE" }}>
         テキストを入力するとカウントが表示されます
       </div>
     );
