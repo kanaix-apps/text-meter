@@ -16,21 +16,17 @@ type Item = {
 const Card = ({ item }: { item: Item }) => (
   <div
     className="flex flex-1 flex-col items-center justify-center rounded-lg py-4"
-    style={
-      item.highlight
-        ? { backgroundColor: "#547792", outline: "1px solid #547792" }
-        : { backgroundColor: "#B3C8CF", outline: "1px solid #B3C8CF" }
-    }
+    style={{ backgroundColor: "#F0EDCF", outline: "1px solid #F0EDCF" }}
   >
-    <p className="text-xs" style={{ color: item.highlight ? "#D4C9BE" : "#547792" }}>
+    <p className="text-xs" style={{ color: "#547792" }}>
       {item.label}
     </p>
     <p
       className="mt-1 text-2xl font-bold tabular-nums leading-none"
-      style={{ color: item.highlight ? "#F1EFEC" : "#123458" }}
+      style={{ color: "#123458" }}
     >
       {typeof item.value === "number" ? item.value.toLocaleString() : item.value}
-      <span className="ml-1 text-xs font-normal" style={{ color: item.highlight ? "#D4C9BE" : "#547792" }}>
+      <span className="ml-1 text-xs font-normal" style={{ color: "#547792" }}>
         {item.unit}
       </span>
     </p>
