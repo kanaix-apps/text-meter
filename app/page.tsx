@@ -56,6 +56,7 @@ export default function Home() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="文章を入力または貼り付けてください"
+            autoFocus
             className="min-h-0 flex-1 resize-none px-8 py-6 text-base leading-relaxed focus:outline-none"
             style={{ backgroundColor: "#ffffff", color: "#123458" }}
           />
