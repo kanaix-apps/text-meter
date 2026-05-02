@@ -16,7 +16,7 @@ type Item = {
 const Card = ({ item }: { item: Item }) => (
   <div
     className="flex flex-1 flex-col items-center justify-center rounded-lg py-4"
-    style={{ backgroundColor: "#F0EDCF", outline: "1px solid #F0EDCF" }}
+    style={{ backgroundColor: "#F7F5E6", outline: "1px solid #F7F5E6" }}
   >
     <p className="text-xs" style={{ color: "#547792" }}>
       {item.label}
