@@ -22,7 +22,7 @@ export default function Home() {
         </p>
       </header>
 
-      <main className="flex flex-1 flex-col">
+      <main className="flex flex-1 flex-col px-[15%]">
         {/* 上段：カウント結果 */}
         <section className="border-b border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
           <CountDisplay result={result} />
