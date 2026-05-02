@@ -1,4 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="6" fill="#123458"/>
-  <text x="16" y="23" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#F0EDCF" text-anchor="middle">字</text>
+  <!-- pencil body -->
+  <g transform="translate(16,16) rotate(-45) translate(-8,-8)">
+    <rect x="4" y="2" width="8" height="18" rx="1" fill="#F0EDCF"/>
+    <!-- pencil tip -->
+    <polygon points="4,20 12,20 8,27" fill="#D4C9BE"/>
+    <!-- pencil tip dark -->
+    <polygon points="7,24 9,24 8,27" fill="#547792"/>
+    <!-- eraser -->
+    <rect x="4" y="2" width="8" height="4" rx="1" fill="#B3C8CF"/>
+    <!-- eraser band -->
+    <rect x="4" y="5.5" width="8" height="1.5" fill="#547792"/>
+  </g>
 </svg>
