@@ -2,33 +2,14 @@
 
 import { useState, useMemo, useCallback } from "react";
 import CountDisplay from "@/components/CountDisplay";
-import { countChars, type CountResult } from "@/lib/counter";
+import { countChars } from "@/lib/counter";
 
 export default function Home() {
   const [text, setText] = useState("");
-  const [realtimeMode, setRealtimeMode] = useState(true);
-  const [manualResult, setManualResult] = useState<CountResult | null>(null);
 
-  const realtimeResult = useMemo(
-    () => (realtimeMode ? countChars(text) : null),
-    [text, realtimeMode],
-  );
+  const result = useMemo(() => countChars(text), [text]);
 
-  const result = realtimeMode ? realtimeResult : manualResult;
-
-  const handleCount = useCallback(() => {
-    setManualResult(countChars(text));
-  }, [text]);
-
-  const handleReset = useCallback(() => {
-    setText("");
-    setManualResult(null);
-  }, []);
-
-  const handleRealtimeToggle = useCallback((v: boolean) => {
-    setRealtimeMode(v);
-    setManualResult(null);
-  }, []);
+  const handleReset = useCallback(() => setText(""), []);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -48,31 +29,12 @@ export default function Home() {
             <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
               入力
             </span>
-            <div className="flex items-center gap-3">
-              <label className="flex cursor-pointer items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
-                <input
-                  type="checkbox"
-                  checked={realtimeMode}
-                  onChange={(e) => handleRealtimeToggle(e.target.checked)}
-                  className="h-3.5 w-3.5 accent-blue-500"
-                />
-                リアルタイム
-              </label>
-              {!realtimeMode && (
-                <button
-                  onClick={handleCount}
-                  className="rounded-md bg-blue-500 px-3 py-1 text-xs font-medium text-white hover:bg-blue-600 active:scale-95"
-                >
-                  カウント
-                </button>
-              )}
-              <button
-                onClick={handleReset}
-                className="rounded-md border border-gray-200 px-3 py-1 text-xs font-medium text-gray-500 hover:bg-gray-50 active:scale-95 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800"
-              >
-                リセット
-              </button>
-            </div>
+            <button
+              onClick={handleReset}
+              className="rounded-md border border-gray-200 px-3 py-1 text-xs font-medium text-gray-500 hover:bg-gray-50 active:scale-95 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800"
+            >
+              リセット
+            </button>
           </div>
 
           <textarea
