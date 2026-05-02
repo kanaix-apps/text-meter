@@ -41,7 +41,7 @@ export default function Home() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="文章を入力または貼り付けてください"
-            className="flex-1 resize-none bg-white p-5 text-base leading-relaxed text-gray-800 placeholder-gray-300 focus:outline-none dark:bg-gray-950 dark:text-gray-100 dark:placeholder-gray-700 lg:min-h-0"
+            className="flex-1 resize-none bg-white px-8 py-6 text-base leading-relaxed text-gray-800 placeholder-gray-300 focus:outline-none dark:bg-gray-950 dark:text-gray-100 dark:placeholder-gray-700 lg:min-h-0"
           />
         </section>
 
@@ -53,7 +53,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-5">
+          <div className="flex-1 overflow-y-auto px-8 py-6">
             <CountDisplay result={result} />
           </div>
         </section>

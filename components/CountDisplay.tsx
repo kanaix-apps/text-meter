@@ -15,7 +15,7 @@ type Item = {
 
 const Card = ({ item }: { item: Item }) => (
   <div
-    className={`rounded-lg p-3 ${
+    className={`rounded-lg p-4 ${
       item.highlight
         ? "bg-blue-50 ring-1 ring-blue-200 dark:bg-blue-900/30 dark:ring-blue-800"
         : "bg-white ring-1 ring-gray-100 dark:bg-gray-800 dark:ring-gray-700"
@@ -23,7 +23,7 @@ const Card = ({ item }: { item: Item }) => (
   >
     <p className="text-xs text-gray-500 dark:text-gray-400">{item.label}</p>
     <p
-      className={`mt-1 text-xl font-bold tabular-nums leading-tight ${
+      className={`mt-1 text-2xl font-bold tabular-nums leading-tight ${
         item.highlight
           ? "text-blue-600 dark:text-blue-400"
           : "text-gray-800 dark:text-gray-100"
@@ -44,7 +44,7 @@ export default function CountDisplay({ result }: Props) {
     );
   }
 
-  const mainItems: Item[] = [
+  const items: Item[] = [
     { label: "全文字数", value: result.total, unit: "字", highlight: true },
     { label: "改行除く", value: result.withoutNewline, unit: "字" },
     { label: "空白・改行除く", value: result.withoutSpace, unit: "字" },
@@ -52,44 +52,18 @@ export default function CountDisplay({ result }: Props) {
   ];
 
   if (result.variationSelectors > 0) {
-    mainItems.splice(1, 0, {
+    items.splice(1, 0, {
       label: "異体字",
       value: result.variationSelectors,
       unit: "個",
     });
   }
 
-  const byteItems: Item[] = [
-    { label: "UTF-8", value: result.bytes.utf8, unit: "バイト" },
-    { label: "UTF-16", value: result.bytes.utf16, unit: "バイト" },
-    { label: "Shift-JIS", value: result.bytes.shiftjis, unit: "バイト" },
-    { label: "EUC-JP", value: result.bytes.eucjp, unit: "バイト" },
-    { label: "JIS", value: result.bytes.jis, unit: "バイト" },
-  ];
-
   return (
-    <div className="flex flex-col gap-6">
-      <section>
-        <h2 className="mb-3 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-          文字数
-        </h2>
-        <div className="grid grid-cols-2 gap-2">
-          {mainItems.map((item) => (
-            <Card key={item.label} item={item} />
-          ))}
-        </div>
-      </section>
-
-      <section>
-        <h2 className="mb-3 text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-          バイト数
-        </h2>
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-          {byteItems.map((item) => (
-            <Card key={item.label} item={item} />
-          ))}
-        </div>
-      </section>
+    <div className="grid grid-cols-2 gap-3">
+      {items.map((item) => (
+        <Card key={item.label} item={item} />
+      ))}
     </div>
   );
 }
