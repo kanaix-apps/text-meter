@@ -18,14 +18,19 @@ export default function Home() {
           テキストメーター
         </h1>
         <p className="text-xs text-gray-500 dark:text-gray-400">
-          文字数・バイト数を即時カウント
+          文字数を即時カウント
         </p>
       </header>
 
-      <main className="flex flex-1 flex-col gap-0 lg:flex-row">
-        {/* 左カラム：入力エリア */}
-        <section className="flex flex-col border-b border-gray-200 lg:w-1/2 lg:border-b-0 lg:border-r dark:border-gray-800">
-          <div className="flex items-center justify-between border-b border-gray-100 px-5 py-3 dark:border-gray-800">
+      <main className="flex flex-1 flex-col">
+        {/* 上段：カウント結果 */}
+        <section className="border-b border-gray-200 bg-gray-50 px-8 py-6 dark:border-gray-800 dark:bg-gray-900">
+          <CountDisplay result={result} />
+        </section>
+
+        {/* 下段：テキスト入力 */}
+        <section className="flex flex-1 flex-col">
+          <div className="flex items-center justify-between border-b border-gray-100 px-6 py-3 dark:border-gray-800">
             <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
               入力
             </span>
@@ -41,21 +46,8 @@ export default function Home() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="文章を入力または貼り付けてください"
-            className="flex-1 resize-none bg-white px-8 py-6 text-base leading-relaxed text-gray-800 placeholder-gray-300 focus:outline-none dark:bg-gray-950 dark:text-gray-100 dark:placeholder-gray-700 lg:min-h-0"
+            className="flex-1 resize-none bg-white px-8 py-6 text-base leading-relaxed text-gray-800 placeholder-gray-300 focus:outline-none dark:bg-gray-950 dark:text-gray-100 dark:placeholder-gray-700"
           />
-        </section>
-
-        {/* 右カラム：カウント結果 */}
-        <section className="flex flex-col bg-gray-50 lg:w-1/2 dark:bg-gray-900">
-          <div className="border-b border-gray-100 px-5 py-3 dark:border-gray-800">
-            <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-              結果
-            </span>
-          </div>
-
-          <div className="flex-1 overflow-y-auto px-8 py-6">
-            <CountDisplay result={result} />
-          </div>
         </section>
       </main>
     </div>
